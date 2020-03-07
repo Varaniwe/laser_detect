@@ -19,8 +19,8 @@ public:
     void start();
     virtual void detect(const cv::Mat& input, cv::Mat& output) = 0;
     virtual void detect(cv::Mat& input) = 0;
-    void setCapture(const std::string& filename);
-    void setCapture(int camIndex);
+    bool setCapture(const std::string& filename);
+    bool setCapture(int camIndex);
     bool captureIsOpened();
 
     template<class T>

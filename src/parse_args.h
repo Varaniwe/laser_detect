@@ -7,16 +7,6 @@ class parse_args
 public:
     parse_args(int argc, char* argv[]);
 
-    struct arg {
-        std::string key;
-        std::string value;
-
-        arg(const std::string& key, const std::string& value)
-            : key(key)
-            , value(value)
-        {}
-    };
-
     void printHelp();
     bool needHelp() const { return mNeedHelp; }
     int cameraNum() const { return mCameraNum; }

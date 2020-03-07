@@ -3,6 +3,8 @@ cmake_minimum_required (VERSION 2.6)
 project(laser_detect)
 
 set (OpenCV_INCLUDEDIR    "$ENV{OPENCV_DIR}/include")
+# You can set exact OpenCV_RUNTIME version for installed OpenCV
+#set (OpenCV_RUNTIME vc14)
 find_package(OpenCV REQUIRED)
 
 add_subdirectory(src)

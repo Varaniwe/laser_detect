@@ -18,11 +18,17 @@ detection::detection(const parse_args & args)
 
     if (args.cameraNum() != parse_args::kCamIsNotPresented)
     {
-        setCapture(args.cameraNum());
+        if (!setCapture(args.cameraNum()))
+        {
+            printf("Cannot create capture from camera\n");
+        }
     }
     else if (!args.filename().empty())
     {
-        setCapture(args.filename());
+        if (!setCapture(args.filename()))
+        {
+            printf("Cannot create capture from file\n");
+        }
     }
 }
 
@@ -59,14 +65,14 @@ void detection::start()
     }
 }
 
-void detection::setCapture(const std::string & filename)
+bool detection::setCapture(const std::string & filename)
 {
-    mCapture.open(filename, cv::CAP_ANY);
+    return mCapture.open(filename, cv::CAP_ANY);
 }
 
-void detection::setCapture(int camIndex)
+bool detection::setCapture(int camIndex)
 {
-    mCapture.open(camIndex, cv::CAP_ANY);
+    return mCapture.open(camIndex, cv::CAP_ANY);
 }
 
 bool detection::captureIsOpened()

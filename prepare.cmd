@@ -10,5 +10,5 @@ rmdir /S /Q build
 @mkdir %build_dir% 2>nul 1>nul
 @pushd %build_dir%
 shift
-cmake -WSdev -G "%CMAKE_GENERATOR%" %* ..\..
+cmake -WSno-dev -G "%CMAKE_GENERATOR%" %* ..\..
 @popd
