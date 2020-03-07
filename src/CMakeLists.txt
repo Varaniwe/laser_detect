@@ -22,7 +22,7 @@ TARGET_LINK_LIBRARIES(laser_detect	debug	opencv_world${CV_VER}d
 									
 
 set(FFMPEG_DLL ${OPENCV_DIR}/${OpenCV_ARCH}/${OpenCV_RUNTIME}/bin/opencv_videoio_ffmpeg${CV_VER}.dll)
-if (EXISTS FFMPEG_DLL)
+if (EXISTS ${FFMPEG_DLL})
 	ADD_CUSTOM_COMMAND (TARGET laser_detect POST_BUILD	COMMAND ${CMAKE_COMMAND} -E copy_if_different 
 						${FFMPEG_DLL}
 						"$<TARGET_FILE_DIR:${PROJECT_NAME}>")
